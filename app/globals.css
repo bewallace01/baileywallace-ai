@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --grid-line: rgba(232, 226, 213, 0.045);
+  --grid-line-strong: rgba(232, 226, 213, 0.085);
+}
+
+html {
+  background-color: #0A0D12;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0A0D12;
+  color: #E5DFD4;
+  font-feature-settings: "ss01", "ss02", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Cartographic background grid. Sits behind everything. */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.bg-grid-fine {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+/* Subtle film grain. Pure CSS noise via layered radial gradients. */
+.bg-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 2px;
+}
+
+/* Halo glow centered behind hero. */
+.bg-halo {
+  background:
+    radial-gradient(circle at 30% 20%, rgba(232, 154, 79, 0.10), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(94, 234, 212, 0.04), transparent 50%);
+}
+
+/* Reveal-on-scroll base. JS adds .is-visible to trigger. */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger helper. */
+.reveal[data-delay="1"] { transition-delay: 0.08s; }
+.reveal[data-delay="2"] { transition-delay: 0.16s; }
+.reveal[data-delay="3"] { transition-delay: 0.24s; }
+.reveal[data-delay="4"] { transition-delay: 0.32s; }
+.reveal[data-delay="5"] { transition-delay: 0.40s; }
+.reveal[data-delay="6"] { transition-delay: 0.48s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-pulse-dot,
+  .animate-scan-line {
+    animation: none !important;
+  }
+}
+
+/* Selection. */
+::selection {
+  background: #E89A4F;
+  color: #0A0D12;
+}
+
+/* Scrollbar trim. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0D12;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E2329;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2A3038;
+}
+
+/* Fiducial marks for cards. */
+.fiducial {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: rgba(232, 226, 213, 0.35);
+}
+.fiducial-tl { top: 8px; left: 8px; border-top: 1px solid; border-left: 1px solid; }
+.fiducial-tr { top: 8px; right: 8px; border-top: 1px solid; border-right: 1px solid; }
+.fiducial-bl { bottom: 8px; left: 8px; border-bottom: 1px solid; border-left: 1px solid; }
+.fiducial-br { bottom: 8px; right: 8px; border-bottom: 1px solid; border-right: 1px solid; }
+
+/* Diagonal hatch overlay for card visuals. */
+.hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(232, 226, 213, 0.06) 0px,
+    rgba(232, 226, 213, 0.06) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
