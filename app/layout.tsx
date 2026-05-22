@@ -56,6 +56,18 @@ export default function RootLayout({
       lang="en"
       className={`${display.variable} ${sans.variable} ${mono.variable}`}
     >
+      <head>
+        {/*
+          Mark the document as JS-enabled before paint so the scroll-reveal
+          CSS only applies when we can actually animate things in. Prevents
+          content from being invisible if JS fails or a crawler runs without it.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.classList.add('js')",
+          }}
+        />
+      </head>
       <body className="font-sans antialiased bg-ink-900 text-paper-100">
         {children}
       </body>
