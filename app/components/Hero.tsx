@@ -46,7 +46,7 @@ export default function Hero() {
                 <Row k="STATION" v="CHARLOTTE, NC" />
                 <Row k="LAT" v="35.2271° N" />
                 <Row k="LON" v="80.8431° W" />
-                <Row k="LOG ENTRIES" v="06" />
+                <Row k="LOG ENTRIES" v="11" />
                 <Row k="LAST UPDATE" v="2026.05.22" />
               </dl>
             </div>
@@ -75,8 +75,12 @@ export default function Hero() {
               <span className="text-signal">[02]</span>
               <span className="group-hover:translate-x-0.5 transition-transform">PROJECTS</span>
             </a>
-            <a className="group inline-flex items-center gap-2 hover:text-signal transition-colors" href="#contact">
+            <a className="group inline-flex items-center gap-2 hover:text-signal transition-colors" href="#builds">
               <span className="text-signal">[03]</span>
+              <span className="group-hover:translate-x-0.5 transition-transform">BUILDS</span>
+            </a>
+            <a className="group inline-flex items-center gap-2 hover:text-signal transition-colors" href="#contact">
+              <span className="text-signal">[04]</span>
               <span className="group-hover:translate-x-0.5 transition-transform">CONTACT</span>
             </a>
             <a

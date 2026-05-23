@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <div className="grid grid-cols-12 gap-x-6 gap-y-12">
           <div className="reveal col-span-12 md:col-span-3 flex items-center gap-3 font-mono text-[11px] tracking-widest text-paper-300">
-            <span className="text-signal">§ 03</span>
+            <span className="text-signal">§ 04</span>
             <span>CONTACT</span>
             <span className="block h-px flex-1 bg-ink-500/80" />
           </div>

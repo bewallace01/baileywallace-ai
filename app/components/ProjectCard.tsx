@@ -9,16 +9,16 @@ const STATUS_STYLES: Record<string, string> = {
   PUBLISHED: "text-paper-200",
 };
 
-type Props = { project: Project; index: number };
+type Props = { project: Project; index: number; staggerOffset?: number };
 
-export default function ProjectCard({ project, index }: Props) {
+export default function ProjectCard({ project, index, staggerOffset = 0 }: Props) {
   const isFeature = index === 0 || index === 3;
   return (
     <article
       className={`reveal group relative overflow-hidden border border-ink-600 bg-ink-800/40 transition-colors hover:border-signal/60 hover:bg-ink-800/70 ${
         isFeature ? "lg:col-span-7" : "lg:col-span-5"
       }`}
-      data-delay={(index % 6) + 1}
+      data-delay={((index + staggerOffset) % 6) + 1}
     >
       <span className="fiducial fiducial-tl" />
       <span className="fiducial fiducial-tr" />

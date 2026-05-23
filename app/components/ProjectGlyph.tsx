@@ -18,6 +18,8 @@ export default function ProjectGlyph({ glyph, className = "" }: Props) {
       {glyph === "heatmap" && <HeatmapGlyph />}
       {glyph === "mesh" && <MeshGlyph />}
       {glyph === "scatter" && <ScatterGlyph />}
+      {glyph === "pin" && <PinGlyph />}
+      {glyph === "pages" && <PagesGlyph />}
     </svg>
   );
 }
@@ -143,6 +145,45 @@ function MeshGlyph() {
       {pts.map((p, i) => (
         <circle key={i} cx={p[0]} cy={p[1]} r="2.4" fill="currentColor" />
       ))}
+    </g>
+  );
+}
+
+function PinGlyph() {
+  // Map pin with concentric search rings, like a locator hit.
+  return (
+    <g>
+      <circle cx="100" cy="100" r="65" fill="none" stroke="currentColor" strokeWidth="0.6" opacity="0.2" />
+      <circle cx="100" cy="100" r="48" fill="none" stroke="currentColor" strokeWidth="0.6" opacity="0.3" />
+      <path
+        d="M100 50 C82 50 70 65 70 82 C70 105 100 150 100 150 C100 150 130 105 130 82 C130 65 118 50 100 50 Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+      />
+      <circle cx="100" cy="82" r="7" fill="currentColor" />
+    </g>
+  );
+}
+
+function PagesGlyph() {
+  // Stacked rectangles with text rules, evoking pages/articles.
+  return (
+    <g>
+      <g fill="none" stroke="currentColor" strokeWidth="0.7">
+        <rect x="36" y="50" width="100" height="120" opacity="0.25" />
+        <rect x="48" y="60" width="100" height="120" opacity="0.55" />
+        <rect x="60" y="70" width="100" height="120" opacity="1" />
+      </g>
+      <g stroke="currentColor" strokeLinecap="round">
+        <line x1="72" y1="92" x2="148" y2="92" strokeWidth="1.4" />
+        <line x1="72" y1="108" x2="140" y2="108" strokeWidth="0.8" opacity="0.7" />
+        <line x1="72" y1="120" x2="148" y2="120" strokeWidth="0.8" opacity="0.7" />
+        <line x1="72" y1="132" x2="128" y2="132" strokeWidth="0.8" opacity="0.7" />
+        <line x1="72" y1="148" x2="148" y2="148" strokeWidth="0.8" opacity="0.55" />
+        <line x1="72" y1="160" x2="140" y2="160" strokeWidth="0.8" opacity="0.55" />
+        <line x1="72" y1="172" x2="148" y2="172" strokeWidth="0.8" opacity="0.55" />
+      </g>
     </g>
   );
 }

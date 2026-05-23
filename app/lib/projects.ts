@@ -16,10 +16,10 @@ export type Project = {
   stack: string[];
   href?: string;
   metric?: { label: string; value: string }[];
-  glyph: "grid" | "radar" | "hex" | "heatmap" | "mesh" | "scatter";
+  glyph: "grid" | "radar" | "hex" | "heatmap" | "mesh" | "scatter" | "pin" | "pages";
 };
 
-export const projects: Project[] = [
+export const aiProjects: Project[] = [
   {
     id: "01",
     title: "Lightspace Labs",
@@ -102,3 +102,73 @@ export const projects: Project[] = [
     glyph: "scatter",
   },
 ];
+
+export const webProjects: Project[] = [
+  {
+    id: "07",
+    title: "Studio Locater",
+    status: "LIVE",
+    role: "Solo build, for my sister",
+    year: "2025",
+    tagline:
+      "Find yoga, pilates, and wellness studios across the U.S.",
+    description:
+      "A discovery directory for 2,400+ fitness and wellness studios. Sanity CMS for content, Cloudflare Workers and D1 for the edge API, MindBody integration for live class data. Search by location, browse by discipline, see class schedules.",
+    stack: ["Sanity CMS", "Cloudflare Workers", "D1", "MindBody API"],
+    href: "https://studiolocater.com",
+    glyph: "pin",
+  },
+  {
+    id: "08",
+    title: "Skimattic",
+    status: "LIVE",
+    role: "Solo build",
+    year: "2025",
+    tagline: "Brand site for a CMS migration consultancy.",
+    description:
+      "Multi-page marketing site with custom branding, diagonal section dividers, and a clean information architecture for the services on offer.",
+    stack: ["HTML5", "CSS", "Static hosting"],
+    href: "https://skimattic.com",
+    glyph: "pages",
+  },
+  {
+    id: "09",
+    title: "GeoSurveyHub",
+    status: "LIVE",
+    role: "Solo build",
+    year: "2025",
+    tagline: "Independent guides for surveying equipment and GIS gear.",
+    description:
+      "Editorial site comparing surveying instruments with deep explainers on how each one works, plus a catalog of options. Independent. Not a dealer.",
+    stack: ["HTML5", "Static hosting"],
+    href: "https://geosurveyhub.com",
+    glyph: "pages",
+  },
+  {
+    id: "10",
+    title: "Wealth Management Brand",
+    status: "LIVE",
+    role: "Client build",
+    year: "2025",
+    tagline: "Landing page for a wealth advisory firm.",
+    description:
+      "Brand-forward landing page deployed on Cloudflare. Lightweight, no framework, easy for the client to update.",
+    stack: ["HTML", "Cloudflare"],
+    glyph: "radar",
+  },
+  {
+    id: "11",
+    title: "Logistics Brand",
+    status: "LIVE",
+    role: "Client build",
+    year: "2025",
+    tagline: "Brand identity and landing page for a logistics firm.",
+    description:
+      "Custom logo work plus a clean single-page site introducing the company and its services.",
+    stack: ["HTML", "Logo design"],
+    glyph: "scatter",
+  },
+];
+
+/** Combined list, used wherever a single iteration is more convenient. */
+export const projects: Project[] = [...aiProjects, ...webProjects];
