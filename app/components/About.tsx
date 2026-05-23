@@ -27,7 +27,7 @@ export default function About() {
                   software.
                 </p>
                 <p>
-                  I am finishing my <Inline>M.S. in Global Health at Duke</Inline>,
+                  I hold an <Inline>M.S. in Global Health from Duke</Inline>,
                   where my thesis trained ConvNeXt and DeepLabV3+ models on
                   PlanetScope satellite imagery to detect coal-plant emissions
                   in Ulaanbaatar. Before Duke I studied marine biology at UCLA
