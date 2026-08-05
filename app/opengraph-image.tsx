@@ -9,7 +9,28 @@ export const alt = "Bailey Wallace, AI systems that see the world from above";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function Image() {
+/**
+ * Pull the real display face so the card matches the site. Wrapped in a
+ * try/catch: if Google Fonts is unreachable the card still renders in the
+ * renderer's default face rather than 500-ing and breaking every preview.
+ */
+async function loadDisplayFont(): Promise<ArrayBuffer | null> {
+  try {
+    const css = await fetch(
+      "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&display=swap",
+      { headers: { "User-Agent": "Mozilla/5.0" } }
+    ).then((r) => r.text());
+    const url = css.match(/src:\s*url\(([^)]+)\)\s*format\('(?:truetype|opentype)'\)/)?.[1];
+    if (!url) return null;
+    return await fetch(url).then((r) => r.arrayBuffer());
+  } catch {
+    return null;
+  }
+}
+
+export default async function Image() {
+  const fontData = await loadDisplayFont();
+
   return new ImageResponse(
     (
       <div
@@ -36,7 +57,20 @@ export default function Image() {
           }}
         >
           <span>BW / OBSERVATORY</span>
-          <span style={{ color: "#E89A4F" }}>● TRANSMITTING</span>
+          <span style={{ display: "flex", alignItems: "center", color: "#E89A4F" }}>
+            {/* Drawn, not typed: the renderer's fallback face has no ● glyph
+                and would substitute a tofu box. */}
+            <div
+              style={{
+                width: 12,
+                height: 12,
+                borderRadius: 12,
+                background: "#E89A4F",
+                marginRight: 10,
+              }}
+            />
+            TRANSMITTING
+          </span>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -48,6 +82,7 @@ export default function Image() {
               lineHeight: 1,
               color: "#F2EEE7",
               letterSpacing: "-0.03em",
+              fontFamily: fontData ? "Display" : undefined,
             }}
           >
             Bailey Wallace
@@ -91,6 +126,11 @@ export default function Image() {
         </div>
       </div>
     ),
-    size
+    {
+      ...size,
+      fonts: fontData
+        ? [{ name: "Display", data: fontData, style: "normal", weight: 600 }]
+        : undefined,
+    }
   );
 }
