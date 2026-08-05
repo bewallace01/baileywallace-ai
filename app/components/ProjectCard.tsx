@@ -100,9 +100,7 @@ export default function ProjectCard({ project, index, staggerOffset = 0 }: Props
               >
                 VISIT <span className="text-signal">↗</span>
               </a>
-            ) : (
-              <span className="ml-auto text-paper-400">CASE STUDY SOON</span>
-            )}
+            ) : null}
           </div>
         </div>
       </div>

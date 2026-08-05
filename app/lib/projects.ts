@@ -35,15 +35,15 @@ export const aiProjects: Project[] = [
   },
   {
     id: "02",
-    title: "Lightsei",
+    title: "Lightsky",
     status: "LIVE",
     role: "Founder",
     year: "2025",
     tagline: "Drop-in observability and guardrails for AI agents.",
     description:
-      "A hosted backend plus Python SDK that wraps your LLM calls. Logs every prompt, response, tool call, and cost; applies guardrails before risky outputs reach production. Built for teams shipping agents who want to see what their models are actually doing.",
+      "A hosted backend plus Python SDK that wraps your LLM calls. Logs every prompt, response, tool call, and cost as a complete trajectory; applies guardrails before risky outputs reach production. Built for teams shipping agents who want to see what their models are actually doing.",
     stack: ["Python", "FastAPI", "Postgres", "SDK distribution"],
-    href: "https://lightsei.com",
+    href: "https://lightsky.ai",
     glyph: "radar",
   },
   {

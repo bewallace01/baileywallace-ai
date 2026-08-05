@@ -36,8 +36,8 @@ export default function Footer() {
               />
               <Channel
                 label="OBSERVATORY"
-                value="lightsei.com"
-                href="https://lightsei.com"
+                value="lightsky.ai"
+                href="https://lightsky.ai"
               />
             </div>
           </div>
