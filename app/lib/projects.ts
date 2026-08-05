@@ -39,10 +39,10 @@ export const aiProjects: Project[] = [
     status: "LIVE",
     role: "Founder",
     year: "2025",
-    tagline: "Drop-in observability and guardrails for AI agents.",
+    tagline: "A team of AI assistants that runs the back office of a small business.",
     description:
-      "A hosted backend plus Python SDK that wraps your LLM calls. Logs every prompt, response, tool call, and cost as a complete trajectory; applies guardrails before risky outputs reach production. Built for teams shipping agents who want to see what their models are actually doing.",
-    stack: ["Python", "FastAPI", "Postgres", "SDK distribution"],
+      "Nine specialist agents under an orchestrator, each owning one corner of the business: inbox triage, lead capture, review response, SEO, marketing, site monitoring, weekly reporting. Every agent drafts in the background and holds anything customer-facing until the owner approves, with per-agent permission scopes and auto-send unlocked task by task as trust builds. Pivoted from an agent-observability SDK, whose guardrail layer became the permission system.",
+    stack: ["Next.js", "Claude API", "Railway", "Postgres", "Cloudflare R2"],
     href: "https://lightsky.ai",
     glyph: "radar",
   },
