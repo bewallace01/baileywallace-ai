@@ -15,6 +15,8 @@ export type Project = {
   description: string;
   stack: string[];
   href?: string;
+  /** Internal route to a written case study, if one exists. */
+  caseStudy?: string;
   metric?: { label: string; value: string }[];
   glyph: "grid" | "radar" | "hex" | "heatmap" | "mesh" | "scatter" | "pin" | "pages";
 };
@@ -70,6 +72,7 @@ export const aiProjects: Project[] = [
     description:
       "Trained a two-stage pipeline on 3 m/pixel PlanetScope imagery over Ulaanbaatar, Mongolia. A ConvNeXt Large classifier handles binary plume detection; a DeepLabV3+ model with a ResNet-101 encoder produces pixel-level segmentation. Cross-location evaluation on Bishkek CHP quantifies domain-shift effects without fine-tuning.",
     stack: ["PyTorch", "ConvNeXt Large", "DeepLabV3+", "ResNet-101", "PlanetScope"],
+    caseStudy: "/log/coal-plume-detection",
     metric: [
       { label: "F1", value: "0.933" },
       { label: "RECALL", value: "1.000" },

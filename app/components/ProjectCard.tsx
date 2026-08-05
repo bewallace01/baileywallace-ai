@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Project } from "../lib/projects";
 import ProjectGlyph from "./ProjectGlyph";
 
@@ -91,7 +92,14 @@ export default function ProjectCard({ project, index, staggerOffset = 0 }: Props
               <span className="text-paper-400">YEAR / </span>
               {project.year}
             </span>
-            {project.href ? (
+            {project.caseStudy ? (
+              <Link
+                href={project.caseStudy}
+                className="ml-auto inline-flex items-center gap-2 text-paper-100 transition-colors hover:text-signal"
+              >
+                READ THE LOG <span className="text-signal">→</span>
+              </Link>
+            ) : project.href ? (
               <a
                 href={project.href}
                 target="_blank"
