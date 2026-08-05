@@ -39,6 +39,11 @@ export default function Footer() {
                 value="lightsky.ai"
                 href="https://lightsky.ai"
               />
+              <Channel
+                label="RESUME"
+                value="Download PDF"
+                href="/bailey-wallace-resume.pdf"
+              />
             </div>
           </div>
         </div>

@@ -1,4 +1,17 @@
 import StatusIndicator from "./StatusIndicator";
+import { projects } from "../lib/projects";
+
+/**
+ * Both of these used to be typed by hand and went stale: the page advertised
+ * a last-update of 2026.05.22 next to a live TRANSMITTING indicator. Derive
+ * them instead. This is a server component and the page is static, so the
+ * date is stamped at build time and refreshes on every deploy.
+ */
+const LOG_ENTRIES = String(projects.length);
+const LAST_UPDATE = new Date()
+  .toISOString()
+  .slice(0, 10)
+  .replace(/-/g, ".");
 
 export default function Hero() {
   return (
@@ -46,8 +59,8 @@ export default function Hero() {
                 <Row k="STATION" v="CHARLOTTE, NC" />
                 <Row k="LAT" v="35.2271° N" />
                 <Row k="LON" v="80.8431° W" />
-                <Row k="LOG ENTRIES" v="11" />
-                <Row k="LAST UPDATE" v="2026.05.22" />
+                <Row k="LOG ENTRIES" v={LOG_ENTRIES} />
+                <Row k="LAST UPDATE" v={LAST_UPDATE} />
               </dl>
             </div>
           </aside>
@@ -84,7 +97,16 @@ export default function Hero() {
               <span className="group-hover:translate-x-0.5 transition-transform">CONTACT</span>
             </a>
             <a
-              className="group ml-auto inline-flex items-center gap-2 hover:text-signal transition-colors"
+              className="group ml-auto inline-flex items-center gap-2 border border-ink-500/80 px-3 py-1.5 text-paper-100 transition-colors hover:border-signal/60 hover:text-signal"
+              href="/bailey-wallace-resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>RESUME</span>
+              <span className="text-signal">↓</span>
+            </a>
+            <a
+              className="group inline-flex items-center gap-2 hover:text-signal transition-colors"
               href="https://lightspacelabs.com"
               target="_blank"
               rel="noreferrer"
