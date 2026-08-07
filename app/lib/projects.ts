@@ -57,8 +57,9 @@ export const aiProjects: Project[] = [
     tagline:
       "Satellite imagery becomes draw-verification reports for construction lenders.",
     description:
-      "A three-agent pipeline. Agent 1 ingests satellite imagery over a bounding box and date range and emits a GeoParquet of H3 hex cells with 20-dimensional feature vectors. Agent 2 classifies. Agent 3 reasons over labeled cells and produces a draw-verification report. Replaces $800 to $2000 human site inspections.",
-    stack: ["GeoParquet", "H3 hex grid", "ML pipeline", "Cloudflare Pages"],
+      "A three-agent pipeline replacing the site visit a lender pays for before releasing each construction draw. Agent 1 fuses Sentinel-1 radar, Sentinel-2 optical, and Landsat over a bounding box into a GeoParquet of H3 hex cells carrying 20-dimensional Clay embeddings. Agent 2 assigns one of 25 material classes per cell with calibrated confidence, and recovers object height from shadow geometry at the moment of overpass. Agent 3, which turns labeled cells into the lender-facing report, is the current build.",
+    stack: ["Clay embeddings", "H3 hex grid", "GeoParquet", "STAC", "Sentinel-1/2", "Dask"],
+    caseStudy: "/log/terra",
     glyph: "hex",
   },
   {
