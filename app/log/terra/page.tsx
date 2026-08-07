@@ -58,8 +58,8 @@ export default function CaseStudy() {
             camera.
           </P>
           <P>
-            That visit costs somewhere between a few hundred and a couple of
-            thousand dollars, and because of the cost it happens rarely. A
+            That visit runs $800 to $2,000, and because of the cost it happens
+            rarely. A
             lender with dozens of active projects is making release decisions
             on evidence that is weeks old and thin. Satellites pass over every
             one of those sites on a schedule, for free.

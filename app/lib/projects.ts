@@ -52,7 +52,7 @@ export const aiProjects: Project[] = [
     id: "03",
     title: "Terra",
     status: "IN BUILD",
-    role: "Solo build",
+    role: "Started with my brother, now solo",
     year: "2026",
     tagline:
       "Satellite imagery becomes draw-verification reports for construction lenders.",
